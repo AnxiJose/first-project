@@ -1,0 +1,22 @@
+
+  <div class="home-view">
+      <div class="left-section">
+        <img [src]="logoSrc" alt="Logo">
+        <div class="divider"></div>
+      </div>
+
+      <app-button-toggle [buttonOptions]='["Estudiantes","Perfil", "Estadisticas"]' (optionSelected)="updateContent($event)"> </app-button-toggle>
+      <div class="right-section">
+        <!-- Buttons go here -->
+        <button mat-raised-button color="primary">Know More</button>
+        <button mat-raised-button color="primary">Login</button>
+        <button mat-raised-button color="primary">Contact</button>
+      </div>
+</div>
+
+    <div class="students">
+      <app-basic-form [formTitle]='"a"' [showOptionalButton]='true' [formFieldType]="'a'" ></app-basic-form>
+      <app-basic-form [formTitle]='"a"' [showOptionalButton]='true' [formFieldType]="'a'" ></app-basic-form>
+      <app-basic-form [formTitle]='"a"' [showOptionalButton]='true' [formFieldType]="'a'" ></app-basic-form>
+      <app-basic-form [formTitle]='"a"' [showOptionalButton]='true' [formFieldType]="'a'" ></app-basic-form>
+    </div>

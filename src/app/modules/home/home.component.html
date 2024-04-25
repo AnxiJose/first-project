@@ -1,0 +1,66 @@
+
+<!-- home-view.component.html -->
+<div class="base">
+<div class="home-view">
+    <div class="left-section">
+      <img [src]="logoSrc" alt="Logo">
+      <div class="divider"></div>
+    </div>
+
+    <app-button-toggle [buttonOptions]='["Saber mas","Ingresar", "Registrar"]' (optionSelected)="updateContent($event)"> </app-button-toggle>
+    <div class="right-section">
+      <!-- Buttons go here -->
+      <button mat-raised-button color="primary">Know More</button>
+      <button mat-raised-button color="primary">Login</button>
+      <button mat-raised-button color="primary">Contact</button>
+    </div>
+
+  </div>
+<div class="middle-section">
+    <div class="column-layout">
+      <div class="column">
+        <div class="logo-home"> <img [src]="logoSrc" alt="Logo"> </div>
+      </div>
+      <div class="divider"></div>
+      <div class="column">
+        <div class="sabermas" *ngIf="selection=== 'Saber mas'">
+          <a class="tittle"> </a>
+
+        </div>
+        <div class="auth"  *ngIf="selection=== 'Ingresar'">
+          <a class="tittle"> Ingresar </a>
+          <mat-form-field>
+            <input matInput [formControl]="usernameControl" required >
+            <mat-error *ngIf="usernameControl.hasError('required')">Username is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [formControl]="passwordControl"  required>
+            <mat-error *ngIf="passwordControl.hasError('required')">Password is required</mat-error>
+          </mat-form-field>
+          <button>
+            <mat-icon>
+
+            </mat-icon>
+          </button>
+        </div>
+        <div class="auth"   *ngIf="selection=== 'Registrar'">
+          <a class="tittle"> </a>
+          <mat-form-field>
+            <input matInput [formControl]="usernameControl" required >
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [formControl]="passwordControl" required>
+          </mat-form-field>
+          <button (click)="onButtonClick() ">
+            <mat-icon>
+
+            </mat-icon>
+          </button>
+          <p *ngIf="loginErrorMessage" class="error-message">{{ loginErrorMessage }}</p>
+        </div>
+      </div>
+
+    </div>
+
+</div>
+</div>

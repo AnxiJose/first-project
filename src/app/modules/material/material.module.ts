@@ -3,8 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule} from '@angular/material/icon'
 import {MatListModule} from '@angular/material/list'
-import { AppRoutingModule } from '../../app-routing.module';
 
+import { MatButtonModule } from '@angular/material/button';
+import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material/button-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input'
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [],
   imports: [
@@ -12,13 +16,15 @@ import { AppRoutingModule } from '../../app-routing.module';
     CommonModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule
+    MatButtonModule,
+    MatButtonToggle,MatButtonToggleGroup,MatFormFieldModule, MatInputModule, MatCheckboxModule
   ],
-  exports: [
+  exports: [CommonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule,
+    MatButtonModule,
+    MatButtonToggle, MatButtonToggleGroup, MatFormFieldModule, MatInputModule, MatCheckboxModule
   ]
 })
 export class MaterialModule { }

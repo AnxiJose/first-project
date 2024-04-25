@@ -1,0 +1,11 @@
+<!-- my-form.component.html -->
+<a>{{ formTitle }}</a>
+
+<form>
+  <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput [type]="formFieldType">
+  </mat-form-field>
+  <mat-checkbox></mat-checkbox>
+  <button mat-raised-button *ngIf="showOptionalButton"><mat-icon>add</mat-icon></button>
+</form>

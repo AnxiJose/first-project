@@ -1,0 +1,7 @@
+<div class="selection" [@toggleSelectionShiftAnimation]="{ value: selectedOption, params: { shift: shiftValue } }"></div>
+<mat-button-toggle-group [formControl]="buttonToggleControl" >
+    <mat-button-toggle #toggleButtons *ngFor="let option of buttonOptions; let i = index" [value]="option" (click)="updateContent(option)">
+
+      {{ option }}
+    </mat-button-toggle>
+  </mat-button-toggle-group>

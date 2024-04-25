@@ -1,0 +1,33 @@
+.selection {
+  min-height: 45px;
+  height:  0.5vw; /* Set the height of the button toggle based on viewport width */
+  min-width: 130px;
+  width:  0.5vw; /* Set the width of the button toggle based on viewport width */
+  padding-top: 2px;
+  background-color: rgba(61, 61, 131, 0.253); /* Set initial color */
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
+  position:absolute;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50px;
+  margin-left: auto;
+}
+/* Apply rounded corners to the button toggle group */
+.mat-button-toggle-group {
+  border-radius: 50px; /* Adjust the border radius as needed */
+}
+
+/* Make the button toggle size dependent on the viewport */
+.mat-button-toggle {
+
+  font-size: max(80 , 1vw); /* Adjust font size based on viewport width */
+  min-height: 45px;
+  height:  0.5vw; /* Set the height of the button toggle based on viewport width */
+  min-width: 130px;
+  width:  0.5vw; /* Set the width of the button toggle based on viewport width */
+}
+
+/* Remove opacity for selected button toggle */
+.mat-button-toggle.mat-button-toggle-checked {
+  background-color: transparent; /* Remove background color for selected button toggle */
+}

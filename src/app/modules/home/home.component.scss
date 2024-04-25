@@ -1,0 +1,103 @@
+/* home-view.component.css */
+:host{
+  flex:1;
+}
+.base{
+  background-color: aquamarine;
+  display:  flex ;
+  height: 100%;
+  width: 100vw;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: auto;
+}
+.home-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100vw;
+    border: 1px solid #ccc; /* Border color for the container */
+    background-color: #ffffff;
+  }
+
+  .left-section {
+    flex: 1; /* Take up available space */
+  }
+
+  .left-section img {
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .divider {
+    width: 2px; /* Width of the divider */
+    height: 100%; /* Match the height of the container */
+    background-color: blue; /* Color of the divider */
+  }
+
+  .right-section {
+    flex: 1; /* Take up available space */
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+  }
+
+  .right-section button {
+    margin-left: 10px; /* Add some space between buttons */
+  }
+.middle-section{
+  min-width: 300px;
+  height: 300px;
+  width: 40vw;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: aqua;
+  margin: auto;
+  margin-top: 10vw;
+  border-color: blue;
+  border: 2px solid #000;
+}
+  .column-layout {
+    display: flex;
+    height: 100%;
+  }
+
+  .column {
+    flex: 1;
+    padding: 5%;
+    border: 1px solid #ccc;
+    display: inline-block;
+
+  }
+  :host ::ng-deep .mat-button-toggle .mat-pseudo-checkbox {
+    display: none;
+  }
+
+  .divider {
+    width: 1px;
+    background-color: blue;
+    height: 100%;
+    margin: 0 10px;
+  }
+  .logo-home  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-home img {
+   width: 100%;
+  }
+  .auth{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  app-button-toggle{
+    position: relative;
+  }

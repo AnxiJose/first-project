@@ -1,0 +1,29 @@
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+mat-form-field, button {
+  flex-grow: 1;
+  margin: 20px;
+}
+
+
+mat-form-field .mat-form-field-outline {
+  border-radius: 10%;  /* Set the border radius for rounded edges */
+}
+
+mat-form-field .mat-form-field-outline-thick {
+  border-radius: 10%;  /* Set the border radius for rounded edges when the form field is focused */
+}
+button {
+  padding: 5px 10px; /* Adjust the padding to make the button smaller */
+  font-size: 12px; /* Adjust the font size */
+  transition: transform 1s ease; /* Animation for the transform property */
+}
+
+button:hover {
+  transform: scale(1.1); /* Add a hover effect to scale the button */
+}
