@@ -1,0 +1,11 @@
+<p>sidebar works!</p>
+<mat-sidenav-container class="mat-sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened="true" class="sidenav">
+        <mat-nav-list>
+            <a mat-list-item (click)="toggleSidebar()">Toggle Sidebar</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
