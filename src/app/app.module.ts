@@ -10,12 +10,15 @@ import { config } from './app.config.server';
 import { JwtModule } from '@auth0/angular-jwt';
 import { tokenGetter } from './shared/getToken.helper';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    AppRoutingModule,CommonModule, RouterModule, RouterOutlet,RouterLink,RouterLinkActive, BrowserModule, ServerModule, HttpClientModule, JwtModule.forRoot({
+    AppRoutingModule,CommonModule, RouterModule, RouterOutlet,RouterLink,RouterLinkActive, BrowserModule, BrowserAnimationsModule, ServerModule, HttpClientModule, JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
         allowedDomains: ["example.com"],

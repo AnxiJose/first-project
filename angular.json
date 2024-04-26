@@ -29,12 +29,14 @@
 							"src/assets"
 						],
 						"styles": [
-							"@angular/material/prebuilt-themes/deeppurple-amber.css",
-							"src/styles.scss"
+
+							"src/styles.scss",
+              "src/styles/theme1.scss"
 						],
 						"stylePreprocessorOptions": {
 							"includePaths": [
-								"src/"
+								"src/",
+                "src/styles"
 							]
 						},
 						"scripts": [],

@@ -7,5 +7,9 @@
     <input matInput [type]="formFieldType">
   </mat-form-field>
   <mat-checkbox></mat-checkbox>
-  <button mat-raised-button *ngIf="showOptionalButton"><mat-icon>add</mat-icon></button>
+  <div *ngIf="showOptionalButton" class="button-container">
+    <button mat-mini-fab color="accent" appearance= "standard" aria-label="Example icon button with a plus one icon">
+      <mat-icon>plus_one</mat-icon>
+    </button>
+  </div>
 </form>

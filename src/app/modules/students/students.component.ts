@@ -10,7 +10,7 @@ import { BasicFormComponent } from '../../shared/basic-form/basic-form.component
   standalone: true,
   imports: [ButtonToggleComponent,CommonModule,
     MaterialModule,
-    ButtonToggleComponent, FormsModule, ReactiveFormsModule,BasicFormComponent],
+    BasicFormComponent],
   templateUrl: './students.component.html',
   styleUrl: './students.component.scss'
 })
