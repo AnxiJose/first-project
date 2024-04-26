@@ -12,20 +12,21 @@ import { tokenGetter } from './shared/getToken.helper';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { appConfig } from './app.config';
 
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    AppRoutingModule,CommonModule, RouterModule, RouterOutlet,RouterLink,RouterLinkActive, BrowserModule, BrowserAnimationsModule, ServerModule, HttpClientModule, JwtModule.forRoot({
+    AppRoutingModule,CommonModule, RouterModule, RouterOutlet,RouterLink,RouterLinkActive, BrowserModule, ServerModule, HttpClientModule, JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
         allowedDomains: ["example.com"],
         disallowedRoutes: ["http://example.com/examplebadroute/"],
       },})
   ],
-  providers: config.providers,
+  providers: appConfig.providers,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

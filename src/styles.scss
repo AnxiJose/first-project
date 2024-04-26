@@ -36,6 +36,7 @@ $first-project-theme: matx.define-theme((
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 :root {
+  @include mat.core-theme($first-project-theme);
   @include mat.all-component-themes($first-project-theme);
 }
 /* You can add global styles to this file, and also import other style files */

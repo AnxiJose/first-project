@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MaterialModule } from '../../modules/material/material.module';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { toggleSelectionShiftAnimation } from '../animations/button-toggle.animation';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatButtonToggle } from '@angular/material/button-toggle';
 
 @Component({

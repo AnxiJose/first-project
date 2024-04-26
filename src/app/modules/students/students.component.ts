@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { BasicFormComponent } from '../../shared/basic-form/basic-form.component';
+import { toggleSelectionShiftAnimation } from '../../shared/animations/button-toggle.animation';
 
 @Component({
   selector: 'app-students',
@@ -12,7 +13,8 @@ import { BasicFormComponent } from '../../shared/basic-form/basic-form.component
     MaterialModule,
     BasicFormComponent],
   templateUrl: './students.component.html',
-  styleUrl: './students.component.scss'
+  styleUrl: './students.component.scss',
+
 })
 export class StudentsComponent {
 updateContent($event: string) {
