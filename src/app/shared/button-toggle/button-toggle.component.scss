@@ -8,9 +8,11 @@
   transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
   position:absolute;
   z-index: 1;
+
   pointer-events: none;
   border-radius: 50px;
   margin-left: auto;
+
 }
 /* Apply rounded corners to the button toggle group */
 .mat-button-toggle-group {

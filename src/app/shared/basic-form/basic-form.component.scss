@@ -29,7 +29,13 @@ button {
   font-size: 12px; /* Adjust the font size */
   transition: transform 1s ease; /* Animation for the transform property */
 }
-
+.form-field-container {
+  display: flex;
+  flex-direction: column;
+}
 button:hover {
   transform: scale(1.1); /* Add a hover effect to scale the button */
+}
+.additional-input {
+  width: 50%; // Adjust the width to make it smaller
 }

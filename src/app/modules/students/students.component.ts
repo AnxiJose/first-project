@@ -11,7 +11,7 @@ import { toggleSelectionShiftAnimation } from '../../shared/animations/button-to
   standalone: true,
   imports: [ButtonToggleComponent,CommonModule,
     MaterialModule,
-    BasicFormComponent],
+    ],
   templateUrl: './students.component.html',
   styleUrl: './students.component.scss',
 

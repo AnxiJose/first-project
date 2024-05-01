@@ -12,7 +12,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [],
   imports: [
@@ -21,14 +21,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    MatButtonToggle,MatButtonToggleGroup,MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatSelectModule, MatLabel, ReactiveFormsModule
+    MatButtonToggle,MatButtonToggleGroup,MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatSelectModule, MatLabel, ReactiveFormsModule, MatCardModule,
   ],
   exports: [CommonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    MatButtonToggle, MatButtonToggleGroup, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatSelectModule, MatLabel, ReactiveFormsModule,
+    MatButtonToggle, MatButtonToggleGroup, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatSelectModule, MatLabel, ReactiveFormsModule,MatCardModule,
   ]
 })
 export class MaterialModule { }

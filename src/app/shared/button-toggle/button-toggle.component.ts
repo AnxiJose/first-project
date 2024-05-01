@@ -9,14 +9,14 @@ import { MatButtonToggle } from '@angular/material/button-toggle';
 @Component({
   selector: 'app-button-toggle',
   standalone: true,
-  imports: [MaterialModule, FormsModule, ReactiveFormsModule, ],
+  imports: [MaterialModule, FormsModule, ReactiveFormsModule,  ],
   templateUrl: './button-toggle.component.html',
   styleUrl: './button-toggle.component.scss',
   animations: [toggleSelectionShiftAnimation]
 })
 export class ButtonToggleComponent {
   @Input() buttonOptions: string[] = ["option1","option2","option3", "option4","option5","option6","option7","option8"];
-  @Input()  selectedOption!: string;
+  @Input()  selectedOption?: string;
   @Output() optionSelected = new EventEmitter<string>();
   buttonToggleControl = new FormControl();
   shiftValue?: number;

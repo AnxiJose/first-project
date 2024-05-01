@@ -2,14 +2,23 @@
 <a>{{ formTitle }}</a>
 
 <form>
+  <div class="form-field-container" >
+
   <mat-form-field appearance="fill">
     <mat-label>Input</mat-label>
     <input matInput [type]="formFieldType">
   </mat-form-field>
-  <mat-checkbox></mat-checkbox>
-  <div *ngIf="showOptionalButton" class="button-container">
-    <button mat-mini-fab color="accent" appearance= "standard" aria-label="Example icon button with a plus one icon">
+  <div *ngFor="let value of formFieldValues; let i = index" class="form-field"  >
+    <mat-form-field appearance="fill" [@fadeInOut]  [@flexAnimation] >
+      <mat-label>{{value}}</mat-label>
+      <input matInput class="additional-input">
+   </mat-form-field>
+  </div>
+  <mat-checkbox @slideInOut></mat-checkbox>
+  <div *ngIf="showOptionalButton" class="button-container" >
+    <button mat-mini-fab color="accent" appearance= "standard" aria-label="Example icon button with a plus one icon" (click)="addFormField()" >
       <mat-icon>plus_one</mat-icon>
     </button>
   </div>
+</div>
 </form>
