@@ -13,6 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   declarations: [],
   imports: [
@@ -21,14 +22,14 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    MatButtonToggle,MatButtonToggleGroup,MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatSelectModule, MatLabel, ReactiveFormsModule, MatCardModule,
+    MatButtonToggle,MatButtonToggleGroup,MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatSelectModule, MatLabel, ReactiveFormsModule, MatCardModule,MatStepperModule
   ],
   exports: [CommonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    MatButtonToggle, MatButtonToggleGroup, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatSelectModule, MatLabel, ReactiveFormsModule,MatCardModule,
+    MatButtonToggle, MatButtonToggleGroup, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatDividerModule, MatSelectModule, MatLabel, ReactiveFormsModule,MatCardModule,MatStepperModule
   ]
 })
 export class MaterialModule { }

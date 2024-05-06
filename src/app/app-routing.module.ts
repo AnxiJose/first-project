@@ -6,6 +6,7 @@ import { RoleGuard } from './core/role.guard';
 import { StudentComponent } from './modules/student/student.component';
 import { PiarComponent } from './modules/piar/piar.component';
 import { GenInfoComponent } from './modules/gen-info/gen-info.component';
+import { FormBasicInfoComponent } from './modules/form-basic-info/form-basic-info.component';
 
 
 export const routes: Routes = [
@@ -31,7 +32,7 @@ export const routes: Routes = [
   },
   {
     path: 'student/:id',
-    component: StudentComponent,
+    component: FormBasicInfoComponent,
     children: [
       {
       path: 'piar',

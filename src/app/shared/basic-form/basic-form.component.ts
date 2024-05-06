@@ -1,13 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MaterialModule } from '../../modules/material/material.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormArrayName, FormsModule } from '@angular/forms';
 import { FadeAnimation } from '../animations/fade.animation';
-
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { SlideAnimation } from '../animations/slide.animation';
 import { ListAnimation } from '../animations/list.animation';
 import { FlexAnimation } from '../animations/flex.animation';
+import { FormData } from '../FormData';
 
 
 @Component({
@@ -19,12 +20,32 @@ import { FlexAnimation } from '../animations/flex.animation';
   animations: [FadeAnimation, ListAnimation, SlideAnimation, FlexAnimation]
 })
 export class BasicFormComponent {
-  @Input() formTitle?: string;
-  @Input() showOptionalButton!: boolean;
-  @Input() formFieldType: string = 'a';
+
+  @Input() dynamicForm!: FormGroup ;
+  checkboxValue = false;
+  @Input() formFieldType!:  FormData  ;
   formFieldValues: string[] = [''];
+  constructor( private formBuilder:FormBuilder ){
+     console.log('start',this.dynamicForm)
+    this.dynamicForm.addControl( this.formFieldType.title,this.formBuilder.group({selection: this.formBuilder.control(''), checkboxValue: this.formBuilder.control(''),
+      genericForm: this.formBuilder.array([this.formBuilder.control('') ]),
+          }))
+          console.log('end',this.dynamicForm)
+          ;
+
+
+  }
+
+  get formArray( ): FormArray {
+    return this.dynamicForm.get('genericForm') as FormArray;
+  }
+
   addFormField() {
     // Add your logic here to handle adding a new form field\
-    this.formFieldValues.push('a');
+
+    this.formArray.push(this.formBuilder.control(''));
+  }
+  removeFormField(index: number ) {
+    this.formArray.removeAt(index)
   }
 }

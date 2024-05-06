@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Primer Nombre*",
+    "checkButton": false,
+        "width": "50%",
+    "titleNest": "Datos Generales"
+
+
+  },
+  {
+    "title": "Segundo Nombre",
+    "subtitle": "Nombre",
+    "optionalButton": false,
+    "type":"date",
+    "width": "50%",
+    "checkButton": true
+
+  },
+  {
+    "title": "Departamento",
+    "subtitle": "Mas",
+    "optionalButton": false,
+    "type":"date",
+    "width": "60%",
+    "checkButton": true,
+    "titleNest": "Lugar de Nacimiento",
+    "nestedForm": {
+      "title": "Municipio",
+      "subtitle": "Nombre",
+      "optionalButton": false,
+      "type":"date",
+      "width": "50%",
+      "checkButton": true
+
+    }
+  }
+
+]

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonToggleComponent } from './button-toggle.component';
+import { FormBasicInfoComponent } from './form-basic-info.component';
 
-describe('ButtonToggleComponent', () => {
-  let component: ButtonToggleComponent;
-  let fixture: ComponentFixture<ButtonToggleComponent>;
+describe('FormBasicInfoComponent', () => {
+  let component: FormBasicInfoComponent;
+  let fixture: ComponentFixture<FormBasicInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonToggleComponent]
+      imports: [FormBasicInfoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ButtonToggleComponent);
+    fixture = TestBed.createComponent(FormBasicInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

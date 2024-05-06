@@ -1,41 +1,92 @@
 //@use '@angular/material' as mat;
 
+.upper{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.bottom{
+  display: flex;
+}
+
 form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  margin: 3%;
+
 }
 
 mat-form-field, button {
   flex-grow: 1;
-  margin: 20px;
+
 }
 
-//@import './styles.scss';
+.subtitle{
+  height: fit-content;
+  width: 30vh;
+  margin-inline-end: auto;
 
+}
+//@import './styles.scss';
+.childForm{
+  display: flex;
+}
 //*{
 //@include mat.all-component-themes($first-project-theme);
 //}
-mat-form-field .mat-form-field-outline {
-  border-radius: 10%;  /* Set the border radius for rounded edges */
-}
 
-mat-form-field .mat-form-field-outline-thick {
-  border-radius: 10%;  /* Set the border radius for rounded edges when the form field is focused */
-}
 button {
   padding: 5px 10px; /* Adjust the padding to make the button smaller */
   font-size: 12px; /* Adjust the font size */
   transition: transform 1s ease; /* Animation for the transform property */
 }
-.form-field-container {
+.join-inline{
+  display: flex;
+  margin-inline-start: auto;
+  width: unset;
+  flex:1;
+}
+.join-block{
   display: flex;
   flex-direction: column;
+
+  margin-left:auto
+}
+
+.form-field-container {
+  display: flex;
+  flex-direction: row;
+  padding-block: 5%;
+}
+.form-field-container button{
+  margin-inline: 15%;
+  margin-block: auto;
+}
+.form-field-container .button-container{
+  margin-block: auto;
+  flex:1;
+
+}
+.button-container{
+  margin-block:auto;
+
+}
+.bottom-container button{
+  margin:auto ;
 }
 button:hover {
   transform: scale(1.1); /* Add a hover effect to scale the button */
 }
 .additional-input {
   width: 50%; // Adjust the width to make it smaller
+}
+mat-checkbox{
+
+}
+a{
+  display: flex;
+
 }

@@ -1,0 +1,55 @@
+@switch (stepperOrientation | async) {
+  @case ('horizontal') {
+    <div>Make your screen smaller to see a vertical stepper</div>
+  }
+  @case ('vertical') {
+    <div>Make your screen larger to see a horizontal stepper</div>
+  }
+}
+<div class="home-view">
+  <div class="left-section">
+    <img [src]="logoSrc" alt="Logo">
+    <div class="vdivider"></div>
+  </div>
+
+  <app-button-toggle [buttonOptions]='["Estudiantes","Perfil", "Estadisticas"]' (optionSelected)="updateContent($event)"> </app-button-toggle>
+  <div class="right-section">
+    <!-- Buttons go here -->
+    <button mat-raised-button color="primary">Know More</button>
+    <button mat-raised-button color="primary">Login</button>
+    <button mat-raised-button color="primary">Contact</button>
+  </div>
+</div>
+<div class="students">
+  <div class="title">
+    <h3> Aspectos generales del estudiante</h3> </div>
+    <mat-divider></mat-divider>
+  <div class="container">
+
+
+    <mat-stepper
+  class="stepper"
+  [orientation]="(stepperOrientation | async)!">
+
+    <form [formGroup]="BasicInfoForm">
+      <mat-step [stepControl]="BasicInfoForm" label="Fill out your name">
+        <div class="mat-step">
+    <div class="form"  *ngFor="let control of (BasicInfoForm.get('firstFormField')!|asFormArray).controls ; let i = index" [style.--width]="formFieldData[0][i].width"  >
+      <h6> {{formFieldData[0][i].titleNest}}</h6>
+      <app-basic-form [formFieldType]="formFieldData[0][i]" [dynamicForm]="control|asFormGroup "   ></app-basic-form>
+ <app-basic-form *ngIf="formFieldData[0][i].nestedForm" [formFieldType]="formFieldData[0][i].nestedForm!" class="padding-bot" ></app-basic-form>
+    </div>
+    </div>
+
+
+
+
+  </mat-step>
+</form>
+
+  <mat-step>
+
+  </mat-step>
+</mat-stepper>
+
+</div>
