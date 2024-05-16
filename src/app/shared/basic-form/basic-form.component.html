@@ -1,16 +1,16 @@
 <!-- my-form.component.html -->
 
 <form  [formGroup]="dynamicForm">
-  <div class="upper">
+  <div class="upper" [formGroupName]="formFieldType.database">
   <div class="subtitle">
     <a>{{ formFieldType.title }}</a>
     </div>
-    <mat-checkbox [formControlName]="'checkboxValue'"  *ngIf="formFieldType.checkButton" ></mat-checkbox>
+    <mat-checkbox  [formControlName]="'checkboxValue'"  *ngIf="formFieldType.checkButton" ></mat-checkbox>
 
     <div class="join-inline">
       <div class="join-block">
   <div *ngIf="formFieldType.selectOptions" class="form-field-container">
-    <mat-form-field>
+    <mat-form-field >
       <mat-label>Opciones</mat-label>
       <mat-select [formControlName]="'selection'" >
         <div *ngFor="let option of formFieldType.selectOptions  ; let i = index">
@@ -19,12 +19,16 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <ng-container *ngIf="formFieldType.selectOptions ? false : true " >
-  <div *ngFor="let control of dynamicForm.get('genericForm')?.value; let i = index"  formArrayName="genericForm" >
+  <ng-container *ngIf="formFieldType.text ? false : true "    >
 
-  <mat-form-field appearance="fill">
+  <div *ngFor="let control of (this.dynamicForm.get(this.formFieldType.database)!.get('genericForm')! |asFormArray ).controls; let i = index"  formArrayName="genericForm"  >
+
+  <mat-form-field appearance="fill"   >
     <mat-label >{{ formFieldType.subtitle }}</mat-label>
-    <input matInput [type]="formFieldType.type" [disabled]="checkboxValue" [formControlName]="i">
+    <input matInput [type]="formFieldType.type" [disabled]="checkboxValue" [formControlName]="i"   *ngIf="!formFieldType.date"  >
+    <input matInput [type]="formFieldType.type" [disabled]="checkboxValue" [formControlName]="i" [matDatepicker]="picker "   *ngIf="formFieldType.date">
+    <mat-datepicker-toggle matIconSuffix [for]="picker" *ngIf="formFieldType.date"> </mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
   </mat-form-field>
   <div *ngIf="formFieldType.optionalButton" class="button-container" >
     <button mat-mini-fab color="accent" appearance= "standard" aria-label="Example icon button with a plus one icon" (click)="addFormField()" >

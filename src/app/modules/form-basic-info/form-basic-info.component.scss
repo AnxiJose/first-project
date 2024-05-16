@@ -93,10 +93,11 @@ width: 100%;
 
 }
 .form {
-  width: var(--width);
+
   min-width:300px;
   margin-top: auto;
   padding-block: 5%;
+  width: 90vw;
 }
 mat-divider{
 width: 100%;
@@ -116,9 +117,16 @@ background-color: blue;
 app-basic-form{
   display: flex;
 
+  width: var(--width);
 }
-app-basic-form {
-  margin: 2%;
+.row-multifield{
+  display: flex;
+  flex-wrap: wrap;
 }
-
-
+.submit{
+  margin-inline: auto;
+  display: flex;
+}
+.submit button{
+  margin-inline: 5%;
+}

@@ -3,11 +3,14 @@
 export interface FormData {
   title: string;
   subtitle: string;
-  optionalButton: boolean;
+  optionalButton?: boolean;
   selectOptions: string[];
   width: string;
-  checkButton: boolean;
+  checkButton?: boolean;
   type: string;
   titleNest?: string;
-  nestedForm?: FormData
+  nestedForm?: FormData[],
+  date?: boolean,
+  text: boolean,
+  database: string,
 }

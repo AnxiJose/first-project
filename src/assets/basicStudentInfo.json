@@ -1,38 +1,150 @@
 [
   {
-    "title": "Primer Nombre*",
+    "title": "Primer Nombre*:",
     "checkButton": false,
-        "width": "50%",
-    "titleNest": "Datos Generales"
-
-
-  },
-  {
-    "title": "Segundo Nombre",
-    "subtitle": "Nombre",
+        "width": "25%",
+    "titleNest": "Datos Generales",
     "optionalButton": false,
-    "type":"date",
-    "width": "50%",
-    "checkButton": true
+    "type":"text",
+    "subtitle":"Primer Nombre",
+    "database": "name",
+    "nestedForm":[
+
+    {
+      "title": "Segundo Nombre:",
+      "subtitle": "Segundo Nombre",
+      "optionalButton": false,
+      "type":"text",
+      "width": "20%",
+      "checkButton": false,
+      "database": "second_name"
+
+    },{
+      "title": "Primer Apellido*:",
+      "subtitle": "Primer Apellido*",
+      "optionalButton": false,
+      "type":"text",
+      "width": "20%",
+      "checkButton": false,
+      "database": "last_name"
+    },
+    {
+      "title": "Segundo Apellido:",
+      "subtitle": "Segundo Apellido",
+      "optionalButton": false,
+      "type":"text",
+      "width": "20%",
+      "checkButton": false,
+      "database": "second_last_name"
+
+    }]
+
 
   },
+
   {
     "title": "Departamento",
     "subtitle": "Mas",
     "optionalButton": false,
-    "type":"date",
+    "type":"text",
     "width": "60%",
     "checkButton": true,
-    "titleNest": "Lugar de Nacimiento",
-    "nestedForm": {
+    "database": "departament",
+
+    "titleNest": "Lugar y Fecha de Nacimiento",
+    "nestedForm": [{
       "title": "Municipio",
       "subtitle": "Nombre",
       "optionalButton": false,
-      "type":"date",
+      "type":"text",
       "width": "50%",
-      "checkButton": true
+      "checkButton": true,
+      "database": "city"
 
-    }
+    },{      "title": "Fecha de nacimiento",
+    "subtitle": "Nombre",
+    "optionalButton": false,
+    "type":"text",
+    "width": "50%",
+    "checkButton": true,
+    "date": true,
+    "database": "student_birthdate"
+  }
+  ]
+  },
+  {
+    "title": "Departamento",
+    "checkButton": false,
+        "width": "25%",
+        "titleNest": "Lugar de Residencia",
+    "optionalButton": false,
+    "type":"text",
+    "subtitle":"Departamento",
+    "database": "departament",
+    "nestedForm":[{
+      "title": "Municipio",
+    "checkButton": false,
+        "width": "25%",
+
+    "optionalButton": false,
+    "type":"text",
+    "subtitle":"Municipio",
+    "database": "city"
+    },
+  {
+    "title": "Barrio",
+    "checkButton": false,
+        "width": "25%",
+
+    "optionalButton": false,
+    "type":"text",
+    "subtitle":"Barrio",
+    "database": "neighborhood"
+  },
+  {
+  "title": "Direccion",
+  "checkButton": false,
+      "width": "25%",
+
+  "optionalButton": false,
+  "type":"text",
+  "subtitle":"Direccion",
+  "database": "address"
+  }
+]
+  },
+  {
+    "title": "Telefono",
+    "checkButton": false,
+        "width": "50%",
+        "titleNest":"Datos de Contacto",
+    "optionalButton": false,
+    "type":"tel",
+    "subtitle":"Telefono",
+    "database": "phone_number",
+    "nestedForm":[{
+      "title": "Correo Electronico",
+      "checkButton": false,
+          "width": "50%",
+
+      "optionalButton": false,
+      "type":"email",
+      "database": "email",
+      "subtitle":"Correo Electronico"
+    }]
+  },
+  {
+    "title": "Esta en centro de proteccion?",
+    "checkButton": true,
+        "width": "50%",
+        "titleNest":"Datos adicionales",
+    "optionalButton": false,
+    "selectOptions":false,
+    "subtitle":"Cual?",
+    "database": "protected_center",
+    "nestedForm":[]
+
+
   }
 
 ]

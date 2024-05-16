@@ -39,6 +39,7 @@ export class HomeComponent {
 
         // Navigate based on the response
         if (response && response.success) {
+          localStorage.setItem('access_token', response.token);
           this.router.navigate(['/students']);
         } else {
           this.loginErrorMessage = 'Login failed due to invalid credentials'

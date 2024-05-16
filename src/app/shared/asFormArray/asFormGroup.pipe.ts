@@ -9,7 +9,7 @@ export class AsFormArrayPipe implements PipeTransform {
 
 
     transform(value: AbstractControl): FormArray {
-      console.log(value)
+
       return value as FormArray;
     }
 

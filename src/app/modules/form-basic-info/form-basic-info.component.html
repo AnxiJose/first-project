@@ -22,22 +22,38 @@
 </div>
 <div class="students">
   <div class="title">
-    <h3> Aspectos generales del estudiante</h3> </div>
+    <h3> {{this.formFieldData}}</h3> </div>
     <mat-divider></mat-divider>
   <div class="container">
 
 
     <mat-stepper
-  class="stepper"
+  class="stepper" #stepper
   [orientation]="(stepperOrientation | async)!">
-
     <form [formGroup]="BasicInfoForm">
-      <mat-step [stepControl]="BasicInfoForm" label="Fill out your name">
+      <ng-container *ngFor="let BasicInfoForm of this.steps; let j = index" >
+      <mat-step [stepControl]="this.getFormArray(BasicInfoForm[1])" label="Fill out your name">
         <div class="mat-step">
-    <div class="form"  *ngFor="let control of (BasicInfoForm.get('firstFormField')!|asFormArray).controls ; let i = index" [style.--width]="formFieldData[0][i].width"  >
-      <h6> {{formFieldData[0][i].titleNest}}</h6>
-      <app-basic-form [formFieldType]="formFieldData[0][i]" [dynamicForm]="control|asFormGroup "   ></app-basic-form>
- <app-basic-form *ngIf="formFieldData[0][i].nestedForm" [formFieldType]="formFieldData[0][i].nestedForm!" class="padding-bot" ></app-basic-form>
+      <div class="form"  *ngFor="let control of this.getFormArray(BasicInfoForm[1]).controls; let i = index"    >
+      <h6> {{ formFieldData[j][0][i].titleNest}}</h6>
+      <div class="row-multifield" *ngIf= formFieldData[j][0][i]>
+      <app-basic-form [formFieldType]='formFieldData[j][0][i]' [dynamicForm]="control |asFormGroup" [style.--width]="formFieldData[j][0][i].width" ></app-basic-form>
+      <ng-container  *ngFor="let nest of formFieldData[j][0][i].nestedForm">
+      <app-basic-form *ngIf="formFieldData[j][0][i].nestedForm" [dynamicForm]="control |asFormGroup " [formFieldType]='nest'  [style.--width]="formFieldData[j][0][i].width" ></app-basic-form>
+
+    </ng-container>
+    </div>
+      <div >
+
+      </div>
+    </div>
+    <div class="submit">
+      <button mat-fab matTooltip="Primary" color="primary" aria-label="Example fab with a heart icon"(click)="goBack()" >
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-fab matTooltip="Primary" color="primary" aria-label="Example fab with a heart icon" (click)="submitPage()">
+        <mat-icon>favorite</mat-icon>
+      </button>
     </div>
     </div>
 
@@ -45,11 +61,13 @@
 
 
   </mat-step>
+</ng-container>
 </form>
 
-  <mat-step>
 
-  </mat-step>
+<mat-step>
+
+</mat-step>
 </mat-stepper>
 
 </div>

@@ -5,7 +5,7 @@ import { StudentsComponent } from './modules/students/students.component';
 import { RoleGuard } from './core/role.guard';
 import { StudentComponent } from './modules/student/student.component';
 import { PiarComponent } from './modules/piar/piar.component';
-import { GenInfoComponent } from './modules/gen-info/gen-info.component';
+
 import { FormBasicInfoComponent } from './modules/form-basic-info/form-basic-info.component';
 
 
@@ -32,8 +32,13 @@ export const routes: Routes = [
   },
   {
     path: 'student/:id',
-    component: FormBasicInfoComponent,
+
     children: [
+      {
+        path: '',
+        //canActivate:mapToCanActivate([RoleGuard]),
+        component: StudentComponent,
+        data: { roles: ['user', 'admin']},},
       {
       path: 'piar',
       //canActivate:mapToCanActivate([RoleGuard]),
@@ -42,7 +47,7 @@ export const routes: Routes = [
       {
         path: 'general',
       //canActivate:mapToCanActivate([RoleGuard]),
-      component: GenInfoComponent,
+      component: FormBasicInfoComponent,
       data: { roles: ['user', 'admin']}
       }
 
