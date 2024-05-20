@@ -1,0 +1,133 @@
+[
+  {
+    "title": " Afiliación al sistema de salud",
+    "checkButton": true,
+        "width": "25%",
+
+    "optionalButton": false,
+    "subtitle":"Nombre",
+    "database": "mom_name",
+    "nestedForm":[
+
+    {
+      "title": "E.P.S.",
+
+      "selectOptions": ["Subsidiado","Contributivo"],
+      "width": "20%",
+      "checkButton": false,
+      "database": "mom_ocupation"
+
+    },{
+      "title": " Lugar donde le atienden en caso de emergencia:",
+      "subtitle": "Lugar de Emergencia",
+      "optionalButton": false,
+      "type":"text",
+      "checkButton": false,
+      "database": "mom_lvl_ed"
+
+    },
+    {
+      "title": "El niño está siendo atendido por el sector salud?",
+      "optionalButton": true,
+
+      "width": "20%",
+      "checkButton": false,
+      "database": "dad_name"
+    },
+
+    {
+      "title": "Frecuencia",
+      "subtitle": "Frecuencia",
+      "optionalButton": false,
+      "selectOptions": ["Ninguna","Poca"," Regular","Mucha"],
+      "width": "20%",
+      "checkButton": false,
+      "database": "frecuency"
+
+    }]
+
+
+  },
+
+  {
+    "title": "Tiene diagnostico medico:",
+    "checkButton":true,
+    "optionalButton": false,
+    "type":"text",
+    "width": "60%",
+
+    "database": "medical_diagnostic",
+
+
+    "nestedForm": [{
+      "title": "¿Cual?",
+      "subtitle": "Otro?",
+      "optionalButton": false,
+      "type":"text",
+      "width": "50%",
+      "checkButton": true,
+      "database": "medical_diagnostic_plus"
+
+    },{      "title": "¿El niño está asistiendo a terapias?:",
+    "subtitle": "Terapias",
+    "checkButton": true,
+      "type":"text",
+    "width": "50%",
+
+    "database": "student_birthdate"
+  },
+  {
+
+
+    "optionalButton": false,
+    "checkButton": true,
+
+
+    "selectOptions":["Ninguna","Diaria","Semanal","Mensual"],
+    "width": "20%",
+
+    "database": "dad_lvl_ed"
+
+  }, {
+    "title": "¿Actualmente recibe tratamiento médico por alguna enfermedad en particular?",
+    "checkButton": true,
+        "width": "50%",
+
+    "optionalButton": false,
+
+    "database": "phone_number",
+    "nestedForm":[{
+      "title": "¿Consume medicamentos?",
+      "checkButton": true,
+          "width": "50%",
+
+      "optionalButton": false,
+
+      "database": "email"
+
+    },{
+    "optionalButton": true,
+    "checkButton": true,
+
+
+    "type":"text",
+    "width": "20%",
+
+    "database": "dad_lvl_ed"}
+  ]
+  }
+
+  ]
+  },
+  {
+    "title": "¿Cuenta con productos de apoyo para favorecer su movilidad, comunicación e independencia? ",
+    "checkButton": false,
+        "width": "25%",
+        "titleNest": "Datos adicionales",
+    "optionalButton": false,
+    "selectOptions":["Ninguna", "Silla de ruedas", "Auricular", "Otros"],
+    "subtitle":"No hermanos",
+    "database": "no_siblings"
+      }
+
+]

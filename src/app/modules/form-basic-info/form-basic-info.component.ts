@@ -1,3 +1,4 @@
+import { DataProcessingService } from './../../services/data-processing/data-processing.service';
 import { FormData } from './../../shared/FormData';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MaterialModule } from '../material/material.module';
@@ -27,10 +28,12 @@ export class FormBasicInfoComponent implements OnInit {
   logoSrc?: string;
   formFieldData: Array<[Array<FormData>, any]> = [];
   stepperOrientation!: Observable<StepperOrientation>;
-  StudentData: any ='a';
+  StudentData: any;
 
-  steps: [string, string][]=[['/assets/basicStudentInfo.json' , 'home']];
-  constructor(private route: ActivatedRoute, private formDataService: FormDataService, private formBuilder:FormBuilder, breakpointObserver: BreakpointObserver, private http: HttpClient ,private apiService: ApiService){
+  steps: [string, string][]=[['/assets/basicStudentInfo.json' , 'home'],['/assets/home_env.json', 'home_env']];
+  constructor(private route: ActivatedRoute, private formDataService: FormDataService, private formBuilder:FormBuilder,
+    breakpointObserver: BreakpointObserver, private http: HttpClient ,private apiService: ApiService, private dataService: DataProcessingService
+   ){
     this.BasicInfoForm= this.formBuilder.group({
       })
       this.stepperOrientation = breakpointObserver
@@ -52,13 +55,14 @@ export class FormBasicInfoComponent implements OnInit {
     );
 
     for (let [path,nameFormGroup] of this.steps  ) {
-
+      let i=0;
       this.BasicInfoForm.addControl(nameFormGroup, this.formBuilder.array([]))
 
       this.formDataService.getFormData(path).subscribe({next: data => {
 
         data.map( field=>{ this.getFormArray(nameFormGroup).push(this.formBuilder.group({}));  })
-        this.StudentData.nameFormGroup ?  this.formFieldData.push([data,this.StudentData.nameFormGroup ]) : this.formFieldData.push([data, this.StudentData])
+        //this.StudentData.nameFormGroup ?  this.formFieldData.push([data,this.StudentData.nameFormGroup ]) : this.formFieldData.push([data, this.StudentData])
+        this.formFieldData.push([data, this.formBuilder.control('')])
             //this.formFieldData[0] = [data,this.getFormGroup(nameFormGroup).controls];
             console.log('nameFormGroup',this.getFormGroup(nameFormGroup))
         }
@@ -68,7 +72,7 @@ export class FormBasicInfoComponent implements OnInit {
         },
 
       });
-      console.log (this.formFieldData[0][0])
+
 
     }
 
@@ -94,7 +98,8 @@ export class FormBasicInfoComponent implements OnInit {
 
 }
   submitPage() {
-    const formData = this.BasicInfoForm.value;
+    console.log (this.BasicInfoForm.value)
+    const formData = this.dataService.combineProperties(this.BasicInfoForm.value[this.steps[this.myStepper.selectedIndex][1]]);
     console.log (formData)
     this.http.post('https://your-api-url.com', formData).subscribe({
          next: data => {

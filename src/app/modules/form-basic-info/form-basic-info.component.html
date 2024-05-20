@@ -31,10 +31,10 @@
   class="stepper" #stepper
   [orientation]="(stepperOrientation | async)!">
     <form [formGroup]="BasicInfoForm">
-      <ng-container *ngFor="let BasicInfoForm of this.steps; let j = index" >
-      <mat-step [stepControl]="this.getFormArray(BasicInfoForm[1])" label="Fill out your name">
+      <ng-container *ngFor="let InfoForm of this.steps; let j = index" >
+      <mat-step [stepControl]="this.getFormArray(InfoForm[1])" label="Fill out your name">
         <div class="mat-step">
-      <div class="form"  *ngFor="let control of this.getFormArray(BasicInfoForm[1]).controls; let i = index"    >
+      <div class="form"  *ngFor="let control of this.getFormArray(InfoForm[1]).controls; let i = index"    >
       <h6> {{ formFieldData[j][0][i].titleNest}}</h6>
       <div class="row-multifield" *ngIf= formFieldData[j][0][i]>
       <app-basic-form [formFieldType]='formFieldData[j][0][i]' [dynamicForm]="control |asFormGroup" [style.--width]="formFieldData[j][0][i].width" ></app-basic-form>

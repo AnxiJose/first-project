@@ -1,0 +1,201 @@
+[
+  {
+    "title": "Nombre de la madre",
+    "checkButton": false,
+        "width": "25%",
+    "titleNest": "Datos Familiares",
+    "optionalButton": false,
+    "type":"text",
+    "subtitle":"Nombre",
+    "database": "mom_name",
+    "nestedForm":[
+
+    {
+      "title": "Ocupacion de la madre",
+      "subtitle": "Ocupacion",
+      "optionalButton": false,
+      "type":"text",
+      "width": "20%",
+      "checkButton": false,
+      "database": "mom_ocupation"
+
+    },{
+      "title": "Nivel educativo alcanzado",
+      "subtitle": "Ocupacion",
+      "optionalButton": false,
+      "selectOptions": ["Bachierato","Tecnico"," Profesional"," Posgrado"],
+      "width": "20%",
+      "checkButton": false,
+      "database": "mom_lvl_ed"
+
+    },
+    {
+      "title": "Nombre del padre",
+      "subtitle": "Nombre",
+      "optionalButton": false,
+      "type":"text",
+      "width": "20%",
+      "checkButton": false,
+      "database": "dad_name"
+    },
+    {
+      "title": "Ocupacion del padre",
+      "subtitle": "Ocupacion",
+      "optionalButton": false,
+      "type":"text",
+      "width": "20%",
+      "checkButton": false,
+      "database": "dad_ocupation"
+
+    },
+    {
+      "title": "Nivel educativo alcanzado",
+      "subtitle": "Ocupacion",
+      "optionalButton": false,
+      "selectOptions": ["Bachierato","Tecnico"," Profesional"," Posgrado"],
+      "width": "20%",
+      "checkButton": false,
+      "database": "dad_lvl_ed"
+
+    }]
+
+
+  },
+
+  {
+    "title": "Nombre",
+    "subtitle": "Nombre",
+    "optionalButton": false,
+    "type":"text",
+    "width": "60%",
+
+    "database": "name_guardian",
+
+    "titleNest": "Cuidador",
+    "nestedForm": [{
+      "title": "Parentesco",
+      "subtitle": "Otro?",
+      "selectOptions":["Padre, Hermano, Tio, Abuelo"],
+      "optionalButton": false,
+      "type":"text",
+      "width": "50%",
+      "checkButton": true,
+      "database": "parentage_guardian"
+
+    },{      "title": "Fecha de nacimiento",
+    "subtitle": "Nombre",
+    "optionalButton": false,
+    "type":"text",
+    "width": "50%",
+    "checkButton": true,
+    "date": true,
+    "database": "student_birthdate"
+  },
+  {
+    "title": "Nivel educativo alcanzado",
+    "subtitle": "Ocupacion",
+    "optionalButton": false,
+    "selectOptions": ["Bachierato","Tecnico"," Profesional"," Posgrado"],
+    "width": "20%",
+    "checkButton": false,
+    "database": "dad_lvl_ed"
+
+  }, {
+    "title": "Telefono",
+    "checkButton": false,
+        "width": "50%",
+
+    "optionalButton": false,
+    "type":"tel",
+    "subtitle":"Telefono",
+    "database": "phone_number",
+    "nestedForm":[{
+      "title": "Correo Electronico",
+      "checkButton": false,
+          "width": "50%",
+
+      "optionalButton": false,
+      "type":"email",
+      "database": "email",
+      "subtitle":"Correo Electronico"
+    }]
+  }
+
+  ]
+  },
+  {
+    "title": "Numero de hermanos",
+    "checkButton": false,
+        "width": "25%",
+        "titleNest": "Datos adicionales",
+    "optionalButton": false,
+    "type":"number",
+    "subtitle":"No hermanos",
+    "database": "no_siblings",
+    "nestedForm":[{
+      "title": "Lugar que ocupa",
+    "checkButton": false,
+        "width": "25%",
+
+    "optionalButton": false,
+    "type":"number",
+    "subtitle":"Lugar",
+    "database": "place_among_siblings"
+    },
+    {
+      "title": "Personas con quien vive",
+    "checkButton": false,
+        "width": "25%",
+
+    "optionalButton": false,
+    "type":"text",
+    "subtitle":"Con quien vive",
+    "database": "roomies"
+    },
+  {
+    "title": "¿Quienes apoyan la crianza del estudiante?",
+    "checkButton": false,
+        "width": "85%",
+
+    "optionalButton": false,
+    "type":"text",
+    "subtitle":"Apoya la crianza",
+    "database": "student_support_group"
+  },
+  {
+  "title": "¿Esta bajo proteccion?",
+  "checkButton": true,
+      "width": "25%",
+
+  "optionalButton": false,
+
+  "database": "under_protection"
+  }
+
+]
+  },
+  {
+    "title": "La familia recibe algún subsidio de alguna entidad o institucion?",
+    "checkButton": true,
+        "width": "25%",
+
+    "optionalButton": false,
+
+    "database": "subside  ",
+    "nestedForm":[
+      {
+        "title": "¿Cual?",
+        "checkButton": true,
+            "width": "25%",
+
+        "optionalButton": false,
+
+        "database": "subside_plus"
+        }
+    ]
+    }
+
+
+
+
+]

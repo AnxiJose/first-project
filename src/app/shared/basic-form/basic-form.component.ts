@@ -54,18 +54,8 @@ export class BasicFormComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.\
-    const group = this.formBuilder.group({})
-    if (this.formFieldType.checkButton) {
-      group.addControl('checkboxValue', this.formBuilder.control(''));
-    }
-    if (this.formFieldType.selectOptions && this.formFieldType.selectOptions.length>0) {
-      group.addControl('selection', this.formBuilder.control(''));
-    }
-    if (!this.formFieldType.text) {
-      group.addControl('genericForm', this.formBuilder.array([this.formBuilder.control('')]));
-    }
 
-    this.dynamicForm.addControl( this.formFieldType.database,group);
+    this.dynamicForm.addControl( this.formFieldType.database,this.formBuilder.array([this.formBuilder.control('')]));
 
   }
   atLeastOneFieldValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
