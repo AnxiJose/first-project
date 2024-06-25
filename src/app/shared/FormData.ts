@@ -13,4 +13,5 @@ export interface FormData {
   date?: boolean,
   text?: boolean,
   database: string,
+  databaseNest?:string
 }

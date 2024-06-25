@@ -15,7 +15,7 @@
       "subtitle": "Segundo Nombre",
       "optionalButton": false,
       "type":"text",
-      "width": "20%",
+      "width": "25%",
       "checkButton": false,
       "database": "second_name"
 
@@ -24,7 +24,7 @@
       "subtitle": "Primer Apellido*",
       "optionalButton": false,
       "type":"text",
-      "width": "20%",
+      "width": "25%",
       "checkButton": false,
       "database": "last_name"
     },
@@ -33,7 +33,7 @@
       "subtitle": "Segundo Apellido",
       "optionalButton": false,
       "type":"text",
-      "width": "20%",
+      "width": "25%",
       "checkButton": false,
       "database": "second_last_name"
 
@@ -44,29 +44,29 @@
 
   {
     "title": "Departamento",
-    "subtitle": "Mas",
+    "subtitle": "Departamento",
     "optionalButton": false,
     "type":"text",
-    "width": "60%",
-    "checkButton": true,
+    "width": "30%",
+    "checkButton": false,
     "database": "departament",
 
     "titleNest": "Lugar y Fecha de Nacimiento",
     "nestedForm": [{
       "title": "Municipio",
-      "subtitle": "Nombre",
+      "subtitle": "Municipio",
       "optionalButton": false,
       "type":"text",
-      "width": "50%",
-      "checkButton": true,
+      "width": "30%",
+      "checkButton": false,
       "database": "city"
 
     },{      "title": "Fecha de nacimiento",
-    "subtitle": "Nombre",
+    "subtitle": "Fecha",
     "optionalButton": false,
     "type":"text",
-    "width": "50%",
-    "checkButton": true,
+    "width": "40%",
+    "checkButton": false,
     "date": true,
     "database": "student_birthdate"
   }
@@ -75,7 +75,7 @@
   {
     "title": "Departamento",
     "checkButton": false,
-        "width": "25%",
+        "width": "30%",
         "titleNest": "Lugar de Residencia",
     "optionalButton": false,
     "type":"text",
@@ -84,7 +84,7 @@
     "nestedForm":[{
       "title": "Municipio",
     "checkButton": false,
-        "width": "25%",
+        "width": "30%",
 
     "optionalButton": false,
     "type":"text",
@@ -94,7 +94,7 @@
   {
     "title": "Barrio",
     "checkButton": false,
-        "width": "25%",
+        "width": "30%",
 
     "optionalButton": false,
     "type":"text",
@@ -104,7 +104,7 @@
   {
   "title": "Direccion",
   "checkButton": false,
-      "width": "25%",
+      "width": "60%",
 
   "optionalButton": false,
   "type":"text",
@@ -116,7 +116,7 @@
   {
     "title": "Telefono",
     "checkButton": false,
-        "width": "50%",
+        "width": "30%",
         "titleNest":"Datos de Contacto",
     "optionalButton": false,
     "type":"tel",
@@ -125,7 +125,7 @@
     "nestedForm":[{
       "title": "Correo Electronico",
       "checkButton": false,
-          "width": "50%",
+          "width": "70%",
 
       "optionalButton": false,
       "type":"email",

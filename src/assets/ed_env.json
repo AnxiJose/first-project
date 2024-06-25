@@ -1,48 +1,57 @@
 [
   {
-    "title": " Afiliación al sistema de salud",
+    "title": " ¿Ha estado vinculado en otra institución educativa, fundación o modalidad de educación inicial?",
     "checkButton": true,
-        "width": "25%",
+        "width": "30%",
 
     "optionalButton": false,
     "subtitle":"Nombre",
-    "database": "mom_name",
+    "database": "last_institute",
     "nestedForm":[
+      {
+        "title": " Observaciones",
+        "subtitle": "Observaciones",
+        "optionalButton": false,
+        "width":"70%",
+        "type":"text",
+        "checkButton": false,
+        "database": "last_institute_comments"
 
+      },
     {
-      "title": "E.P.S.",
+      "title": "¿Aprobó el ultimo grado cursado?",
 
-      "selectOptions": ["Subsidiado","Contributivo"],
-      "width": "20%",
-      "checkButton": false,
-      "database": "mom_ocupation"
+      "width": "30%",
+      "checkButton": true,
+      "database": "flunked"
 
     },{
-      "title": " Lugar donde le atienden en caso de emergencia:",
-      "subtitle": "Lugar de Emergencia",
+      "title": " Observaciones",
+      "subtitle": "Observaciones",
       "optionalButton": false,
+      "width":"70%",
       "type":"text",
       "checkButton": false,
-      "database": "mom_lvl_ed"
+      "database": "flunked_comments"
 
     },
     {
-      "title": "El niño está siendo atendido por el sector salud?",
-      "optionalButton": true,
-
-      "width": "20%",
-      "checkButton": false,
-      "database": "dad_name"
-    },
-
-    {
-      "title": "Frecuencia",
-      "subtitle": "Frecuencia",
+      "title": "¿Se recibe informe pedagógico cualitativo que describa el proceso de desarrollo y aprendizaje del estudiante y/o PIAR? ",
       "optionalButton": false,
-      "selectOptions": ["Ninguna","Poca"," Regular","Mucha"],
-      "width": "20%",
+
+      "width": "50%",
+      "checkButton": true,
+      "database": "piar_similar"
+    },
+
+    {
+      "title": "¿De qué institución o modalidad proviene el informe?",
+      "subtitle": "Institucion informe",
+      "optionalButton": false,
+      "type":"text",
+      "width": "50%",
       "checkButton": false,
-      "database": "frecuency"
+      "database": "piar_similar_plus"
 
     }]
 
@@ -50,84 +59,62 @@
   },
 
   {
-    "title": "Tiene diagnostico medico:",
+    "title": "¿Está asistiendo en la actualidad a programas complementarios? ",
     "checkButton":true,
     "optionalButton": false,
-    "type":"text",
-    "width": "60%",
 
-    "database": "medical_diagnostic",
+    "width": "40%",
+    "titleNest":"Datos complementarios",
+    "database": "complementary_programs",
 
 
     "nestedForm": [{
-      "title": "¿Cual?",
+      "title": "¿Cuales?",
       "subtitle": "Otro?",
-      "optionalButton": false,
+      "optionalButton": true,
       "type":"text",
-      "width": "50%",
-      "checkButton": true,
-      "database": "medical_diagnostic_plus"
+      "width": "60%",
+      "checkButton": false,
+      "database": "complemmentary_programs_plus"
 
-    },{      "title": "¿El niño está asistiendo a terapias?:",
-    "subtitle": "Terapias",
-    "checkButton": true,
+    },{      "title": "Nombre de la Institución educativa a la que se matricula:",
+    "subtitle": "Nombre",
+
       "type":"text",
+    "width": "100%",
+
+    "database": "school_name"
+  },
+  {      "title": "Sede:",
+    "subtitle": "Nombre de sede",
+
+      "type":"text",
+    "width": "100%",
+
+    "database": "school_site"
+  },
+  {
+
+    "title":"Medio que usará el estudiante para transportarse a la institución educativa.",
+    "optionalButton": false,
+    "checkButton": false,
+
+
+    "selectOptions":["Caminata","Biciclieta","Motocicleta","Automovil", "Ruta Escolar","Vehiculo de traccion animal", "Otos medios"],
     "width": "50%",
 
-    "database": "student_birthdate"
-  },
-  {
-
-
-    "optionalButton": false,
-    "checkButton": true,
-
-
-    "selectOptions":["Ninguna","Diaria","Semanal","Mensual"],
-    "width": "20%",
-
-    "database": "dad_lvl_ed"
+    "database": "school_commute"
 
   }, {
-    "title": "¿Actualmente recibe tratamiento médico por alguna enfermedad en particular?",
-    "checkButton": true,
-        "width": "50%",
-
-    "optionalButton": false,
-
-    "database": "phone_number",
-    "nestedForm":[{
-      "title": "¿Consume medicamentos?",
-      "checkButton": true,
-          "width": "50%",
-
-      "optionalButton": false,
-
-      "database": "email"
-
-    },{
-    "optionalButton": true,
-    "checkButton": true,
-
-
-    "type":"text",
-    "width": "20%",
-
-    "database": "dad_lvl_ed"}
-  ]
-  }
-
-  ]
-  },
-  {
-    "title": "¿Cuenta con productos de apoyo para favorecer su movilidad, comunicación e independencia? ",
+    "title": "Distancia entre la institucion educativa o sede y el hogar del estudiante (Tiempo)",
     "checkButton": false,
-        "width": "25%",
-        "titleNest": "Datos adicionales",
+        "width": "50%",
+    "selectOptions":["menos de 15 minutos","más de 30 minutos","1 hora", "mas de 1 hora", "2 horas", "3 horas", "4 horas","5 horas", "mas de 6 horas"],
     "optionalButton": false,
-    "selectOptions":["Ninguna", "Silla de ruedas", "Auricular", "Otros"],
-    "subtitle":"No hermanos",
-    "database": "no_siblings"
-      }
 
-]
+    "database": "school_commute_time"
+   }]
+
+   }
+  ]
+

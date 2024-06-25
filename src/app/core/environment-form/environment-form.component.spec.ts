@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormBasicInfoComponent } from './form-basic-info.component';
+import { EnvironmentFormComponent } from './environment-form.component';
 
-describe('FormBasicInfoComponent', () => {
-  let component: FormBasicInfoComponent;
-  let fixture: ComponentFixture<FormBasicInfoComponent>;
+describe('EnvironmentFormComponent', () => {
+  let component: EnvironmentFormComponent;
+  let fixture: ComponentFixture<EnvironmentFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormBasicInfoComponent]
+      imports: [EnvironmentFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormBasicInfoComponent);
+    fixture = TestBed.createComponent(EnvironmentFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

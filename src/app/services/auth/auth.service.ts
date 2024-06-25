@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { jwtDecode } from 'jwt-decode';
 import { Observable, tap } from 'rxjs';
+import { environment } from '../../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl='http://backendapi.com'
+  private baseUrl=`${environment.apiUrl}/auth`
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
   login (username: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/login`, {username,password}).pipe(
@@ -18,6 +19,15 @@ export class AuthService {
 
       }
     }))
+  }
+  signup(username: string, password: string, role: string){
+    return this.http.post<any>(`${this.baseUrl}/signup`, {username,password,role}).pipe(
+      tap(response =>{
+        if (response && response.token){
+          this.saveAuthToken(response.token);
+
+        }
+      }))
   }
   logout(): void{
     this.clearAuthToken()

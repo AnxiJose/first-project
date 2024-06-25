@@ -30,32 +30,41 @@
         <div class="auth"  *ngIf="selection=== 'Ingresar'">
           <a class="tittle"> Ingresar </a>
           <mat-form-field>
-            <input matInput [formControl]="usernameControl" required >
-            <mat-error *ngIf="usernameControl.hasError('required')">Username is required</mat-error>
+            <mat-label> Usuario</mat-label>
+            <input matInput [formControl]="username" required >
+            <mat-error *ngIf="username.hasError('required')">Username is required</mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input matInput [formControl]="passwordControl"  required>
-            <mat-error *ngIf="passwordControl.hasError('required')">Password is required</mat-error>
+            <mat-label> Contrasena</mat-label>
+            <input matInput [formControl]="password"  required>
+            <mat-error *ngIf="password.hasError('required')">Password is required</mat-error>
           </mat-form-field>
-          <button>
-            <mat-icon>
+          <button mat-mini-fab color="primary" (click)="LoginButton()">
+              <mat-icon>login</mat-icon>
 
-            </mat-icon>
           </button>
         </div>
         <div class="auth"   *ngIf="selection=== 'Registrar'">
-          <a class="tittle"> </a>
+          <a class="tittle"> Registrate </a>
           <mat-form-field>
-            <input matInput [formControl]="usernameControl" required >
+            <mat-label> Usuario</mat-label>
+            <input matInput [formControl]="username" required >
           </mat-form-field>
           <mat-form-field>
-            <input matInput [formControl]="passwordControl" required>
+            <mat-label> Contrasena</mat-label>
+            <input matInput [formControl]="password" required>
           </mat-form-field>
-          <button (click)="onButtonClick() ">
-            <mat-icon>
+          <mat-form-field>
+            <mat-label> Selecciona tu rol</mat-label>
+          <mat-select  [formControl]="roles" >
+            <mat-option value="teacher">Profesor</mat-option>
+            <mat-option value="student">Estudiantes</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-            </mat-icon>
-          </button>
+            <button mat-mini-fab color="primary" (click)="SignupButton()">
+            <mat-icon>login</mat-icon>
+            </button>
           <p *ngIf="loginErrorMessage" class="error-message">{{ loginErrorMessage }}</p>
         </div>
       </div>

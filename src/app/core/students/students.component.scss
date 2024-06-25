@@ -48,7 +48,7 @@
   min-height: 78%;
   height: auto;
   flex-wrap: wrap;
-  min-height: 85vh;
+
   align-items: center;
 }
 .container {
@@ -59,6 +59,10 @@
   width: 100%;
   margin: 10%;
 }
+.left-section img{
+  width: 8vh
+}
+
 .container-top{
   display: flex;
   width: 100%;
@@ -131,4 +135,7 @@ mat-card-content{
   width: 2px;
   height: 100%;
   background-color: blue;
+}
+app-student{
+  height: fit-content;
 }

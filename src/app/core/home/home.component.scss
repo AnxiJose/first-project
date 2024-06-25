@@ -3,7 +3,7 @@
   flex:1;
 }
 .base{
-  background-color: aquamarine;
+  background-color: #b6e2ff;
   display:  flex ;
   height: 100%;
   width: 100vw;
@@ -47,28 +47,30 @@
   }
 .middle-section{
   min-width: 300px;
-  height: 300px;
+  height: fit-content;
   width: 40vw;
   justify-content: center;
   align-items: center;
   display: inline-block;
   padding: 20px;
   border-radius: 20px;
-  background-color: aqua;
+  background-color: #ffffff;
   margin: auto;
-  margin-top: 10vw;
+  margin-block: 10vw;
   border-color: blue;
   border: 2px solid #000;
+  max-width: 70%;
 }
   .column-layout {
     display: flex;
     height: 100%;
+    flex-wrap: wrap;
   }
 
   .column {
     flex: 1;
-    padding: 5%;
-    border: 1px solid #ccc;
+    padding-block: 5%;
+    border: 0px solid #ccc;
     display: inline-block;
 
   }
@@ -79,17 +81,20 @@
   .divider {
     width: 1px;
     background-color: blue;
-    height: 100%;
-    margin: 0 10px;
+    height: unset;
+
   }
   .logo-home  {
     width: 100%;
     display: flex;
     justify-content: center;
+    height: 100%;
+    align-items: center;
   }
 
   .logo-home img {
-   width: 100%;
+   width:15vh;
+   height: 15vh;
   }
   .auth{
     height: 100%;
@@ -101,3 +106,6 @@
   app-button-toggle{
     position: relative;
   }
+.left-section img{
+  width: 8vh
+}

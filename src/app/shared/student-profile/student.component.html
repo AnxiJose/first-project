@@ -1,0 +1,45 @@
+
+<div class="students">
+  <div class="container">
+    <div class="container-top">
+    <div class="logo"><img [src]="'././assets/student.png'"></div>
+
+    <div class="name"><h1>{{data.name+' '+data['second_name']+' '+data['last_name']+' '+data['second_last_name']}}</h1></div></div>
+  </div>
+    <!-- <div class="hdivider"></div>-->
+    <mat-divider></mat-divider>
+    <div class="container-bot">
+    <div class="info">
+      <mat-card>
+        <mat-card-content><mat-icon>perm_contact_calendar</mat-icon> <p>Edad: {{data['age'] ??'??'}} </p>
+      </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content><mat-icon>perm_contact_calendar</mat-icon> <p>Periodo: {{data['period'] ??'??'}}</p>
+      </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content><mat-icon>perm_contact_calendar</mat-icon> <p>Aspira a: {{data['age'] ??'??'}} grado </p>
+      </mat-card-content>
+      </mat-card>
+      <mat-card class="desc" *ngIf="data['additional_data']">
+        <mat-card-content ><mat-icon>perm_contact_calendar</mat-icon> <p>Datos adicionales: {{data['additional_data']}}</p>
+      </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="squares">
+
+        <button mat-fab extended aria-label="extended" (click)="entornoRedirect()">
+          <mat-icon>favorite</mat-icon>
+          Entorno Educativo
+      </button>
+      <button mat-fab extended aria-label="extended" (click)="piarRedirect()">
+        <mat-icon>favorite</mat-icon>
+        PIAR
+    </button>
+
+
+  </div>
+  </div>
+</div>

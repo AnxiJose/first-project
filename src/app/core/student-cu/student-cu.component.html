@@ -1,0 +1,69 @@
+
+<div class="home-view">
+  <div class="left-section">
+    <img [src]="logoSrc" alt="Logo">
+    <div class="vdivider"></div>
+  </div>
+
+  <app-button-toggle [buttonOptions]='["Estudiantes","Perfil", "Estadisticas"]' (optionSelected)="updateContent($event)"> </app-button-toggle>
+  <div class="right-section">
+    <!-- Buttons go here -->
+    <button mat-raised-button color="primary">Know More</button>
+    <button mat-raised-button color="primary">Login</button>
+    <button mat-raised-button color="primary">Contact</button>
+  </div>
+</div>
+<div class="students">
+  <div class="container">
+    <div class="container-top">
+    <div class="logo"><img [src]="'././assets/student.png'"></div>
+
+    <app-ddinput [form]="this.full_name"></app-ddinput>
+   <!--  <div class="name"><h1>Jose Gabriel Sierra Ariza</h1></div></div>-->
+  </div>
+    <!-- <div class="hdivider"></div>-->
+    <mat-divider></mat-divider>
+
+    <div class="container-bot">
+
+      <form [formGroup]="this.InitialForm">
+    <div class="info">
+
+      <div class="infodiv">
+      <div class=textform><a>Curso a aspirar:</a></div>
+      <div class="forminput">
+      <input class="dd2input" formControlName="grade_aspiration">
+      </div>
+    </div>
+    <div class="infodiv">
+    <div class=textform><a>Periodo:</a></div>
+    <div class="forminput">
+    <input class="dd2input" formControlName="period">
+  </div>
+</div>
+<div class="infodiv">
+  <div class=textform><a>Edad:</a></div>
+  <div class="forminput">
+  <input class="dd2input" formControlName="age">
+</div>
+</div>
+
+<div class="additional">
+  <div class=textform><a>Datos adicionales:</a></div>
+  <div class="forminput">
+  <textarea class="dd2input" formControlName="additional_data"></textarea>
+</div>
+
+</div>
+    <div class="squares">
+
+        <button mat-fab extended aria-label="extended" (click)="saveInitialData()">
+          <mat-icon>save</mat-icon>
+          Guardar
+      </button>
+
+
+  </div>
+  </div>
+</form>
+</div>

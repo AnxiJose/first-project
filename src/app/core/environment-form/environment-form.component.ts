@@ -1,7 +1,7 @@
-import { DataProcessingService } from './../../services/data-processing/data-processing.service';
-import { FormData } from './../../shared/FormData';
+import { DataProcessingService } from '../../services/data-processing/data-processing.service';
+import { FormData } from '../../shared/FormData';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../shared/material/material.module';
 import { BasicFormComponent } from '../../shared/basic-form/basic-form.component';
 import { ButtonToggleComponent } from '../../shared/button-toggle/button-toggle.component';
 import { ActivatedRoute } from '@angular/router';
@@ -15,14 +15,15 @@ import { Observable, map } from 'rxjs';
 import { MatStepper, StepperOrientation } from '@angular/material/stepper';
 import { AsFormGroupPipe } from "../../shared/asFormGroup/asFormGroup.pipe";
 import { ApiService } from '../../services/api/api.service';
+import { environment } from '../../../environment/environment';
 @Component({
-    selector: 'app-form-basic-info',
+    selector: 'app-environment-form',
     standalone: true,
-    templateUrl: './form-basic-info.component.html',
-    styleUrl: './form-basic-info.component.scss',
+    templateUrl: './environment-form.component.html',
+    styleUrl: './environment-form.component.scss',
     imports: [MaterialModule, BasicFormComponent, ButtonToggleComponent, HttpClientModule, AsFormGroupPipe]
 })
-export class FormBasicInfoComponent implements OnInit {
+export class EnvironmentFormComponent implements OnInit {
   @ViewChild('stepper') private myStepper!: MatStepper;
   BasicInfoForm!: FormGroup ;
   logoSrc?: string;
@@ -30,7 +31,7 @@ export class FormBasicInfoComponent implements OnInit {
   stepperOrientation!: Observable<StepperOrientation>;
   StudentData: any;
 
-  steps: [string, string][]=[['/assets/basicStudentInfo.json' , 'home'],['/assets/home_env.json', 'home_env']];
+  steps: [string, string][]=[['/assets/students.json' , 'students'],['/assets/home_env.json', 'home_env'], ['/assets/health_env.json', 'health_env'],['/assets/ed_env.json','ed_env'  ],['/assets/others.json','others']];
   constructor(private route: ActivatedRoute, private formDataService: FormDataService, private formBuilder:FormBuilder,
     breakpointObserver: BreakpointObserver, private http: HttpClient ,private apiService: ApiService, private dataService: DataProcessingService
    ){
@@ -58,7 +59,7 @@ export class FormBasicInfoComponent implements OnInit {
       let i=0;
       this.BasicInfoForm.addControl(nameFormGroup, this.formBuilder.array([]))
 
-      this.formDataService.getFormData(path).subscribe({next: data => {
+      this.formDataService.getFormData(`/assets/${nameFormGroup}.json`).subscribe({next: data => {
 
         data.map( field=>{ this.getFormArray(nameFormGroup).push(this.formBuilder.group({}));  })
         //this.StudentData.nameFormGroup ?  this.formFieldData.push([data,this.StudentData.nameFormGroup ]) : this.formFieldData.push([data, this.StudentData])
@@ -98,10 +99,11 @@ export class FormBasicInfoComponent implements OnInit {
 
 }
   submitPage() {
-    console.log (this.BasicInfoForm.value)
+
     const formData = this.dataService.combineProperties(this.BasicInfoForm.value[this.steps[this.myStepper.selectedIndex][1]]);
-    console.log (formData)
-    this.http.post('https://your-api-url.com', formData).subscribe({
+
+    console.log(formData)
+    this.http.post(`${environment.apiUrl}/generic/add`, formData, {headers:{'model':this.steps[this.myStepper.selectedIndex][1], 'nested': this.steps[this.myStepper.selectedIndex][0] }}).subscribe({
          next: data => {
       console.log('Success!', data);
     },

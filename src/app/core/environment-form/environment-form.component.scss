@@ -114,10 +114,13 @@ height: 100%;
 background-color: blue;
 }
 
-app-basic-form{
+app-environment-form{
   display: flex;
-
-  width: var(--width);
+  min-width: 250px;
+  width: var( --width);
+  align-items: center;
+  padding: 2%;
+  box-sizing: border-box;
 }
 .row-multifield{
   display: flex;

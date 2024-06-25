@@ -1,3 +1,4 @@
 export function tokenGetter() {
-  return localStorage.getItem("access_token");
+  console.log(localStorage.getItem("authToken"))
+  return localStorage.getItem("authToken");
 }

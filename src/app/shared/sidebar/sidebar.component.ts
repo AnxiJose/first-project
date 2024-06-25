@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import {MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { MaterialModule } from '../../modules/material/material.module';
+import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 
 @Component({

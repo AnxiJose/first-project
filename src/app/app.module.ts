@@ -24,7 +24,7 @@ import { appConfig } from './app.config';
     BrowserAnimationsModule ,AppRoutingModule,CommonModule, BrowserModule,RouterModule, RouterOutlet,RouterLink,RouterLinkActive, ServerModule, HttpClientModule, JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["localhost"],
+        allowedDomains: ["localhost:3000"],
         disallowedRoutes: ["localhost/login/","localhost/signup"],
       },})
   ],

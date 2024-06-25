@@ -16,7 +16,7 @@ form {
   justify-content: space-between;
   width: 100%;
   margin-block: 3%;
-  margin-inline: 5%;
+
 
 }
 
@@ -54,7 +54,7 @@ button {
 .join-block{
   display: flex;
   flex-direction: column;
-  margin-top:10px;
+
   margin-left:auto
 }
 
@@ -91,4 +91,9 @@ mat-checkbox{
 a{
   display: flex;
 
+}
+.checkButton{
+  display: flex;
+  flex-direction: row;
+  padding: 5%;
 }

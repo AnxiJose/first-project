@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Observaciones",
+    "checkButton": false,
+        "width": "50%",
+    "titleNest": "Datos Generales",
+    "optionalButton": false,
+    "type":"text",
+    "subtitle":"Observaciones",
+    "database": "name",
+    "nestedForm":[
+
+    {
+      "title": "Consideraciones",
+      "subtitle": "Consideraciones",
+      "optionalButton": false,
+      "type":"text",
+      "width": "50%",
+      "checkButton": false,
+      "database": "second_name"
+
+    }]}]

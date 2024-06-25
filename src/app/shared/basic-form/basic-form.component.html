@@ -7,21 +7,39 @@
     </div>
     <mat-checkbox  [formControlName]="0"  *ngIf="formFieldType.checkButton" ></mat-checkbox>
 
-    <div class="join-inline">
+    <div class="join-inline" [ngStyle]="{'display': formFieldType.checkButton ? 'none' : ''}">
       <div class="join-block">
-  <div *ngIf="formFieldType.selectOptions" class="form-field-container">
+
+  <div *ngIf="formFieldType.selectOptions && !(formFieldTypeBefore?.subtitle=='Terapias')" class="form-field-container" >
     <mat-form-field >
       <mat-label>Opciones</mat-label>
       <mat-select [formControlName]="0"  >
         <div *ngFor="let option of formFieldType.selectOptions  ; let i = index">
         <mat-option [value]="option">{{option}}</mat-option>
-      </div>
+      </div>.
+
       </mat-select>
     </mat-form-field>
   </div>
+  <ng-container *ngIf="(formFieldTypeBefore?.subtitle=='Terapias')">
+  <ng-container *ngFor="let control of (this.dynamicForm.get(this.formFieldTypeBefore!.database)! |asFormArray).controls ; let i= index ">
+    <div *ngIf="formFieldType.selectOptions" class="form-field-container" >
+      <mat-form-field >
+        <mat-label>Opciones</mat-label>
+        <mat-select [formControlName]="0"  >
+          <div *ngFor="let option of formFieldType.selectOptions  ; let i = index">
+          <mat-option [value]="option">{{option}}</mat-option>
+        </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </ng-container>
+
+  </ng-container>
+
   <ng-container *ngIf="formFieldType.text ? false : true "    >
 
-  <div *ngFor="let control of (this.dynamicForm.get(this.formFieldType.database)! |asFormArray ).controls; let i = index"    >
+  <div  class="checkButton" *ngFor="let control of (this.dynamicForm.get(this.formFieldType.database)! |asFormArray ).controls; let i = index"   >
 
   <mat-form-field appearance="fill"   *ngIf="formFieldType.type">
     <mat-label >{{ formFieldType.subtitle }}</mat-label>
@@ -35,8 +53,8 @@
       <mat-icon>plus_one</mat-icon>
     </button>
   </div>
+</div>
 
-  </div>
 </ng-container>
 </div>
   <div *ngIf="formFieldType.optionalButton" class="button-container" >

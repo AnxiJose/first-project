@@ -1,13 +1,15 @@
 footer{
-    background-color: #16559d;
+    background-color: #182e61;
     width: 100%;
-
-
+    max-height: 30%;
+    flex:0.2;
+    height: fit-content;
     left: 0;
-    max-height: 20%;
-    height: 100%;
+
+
   margin-top: auto;
 }
+
 
 .base{
   background-color: #e1f5ff;
@@ -54,5 +56,5 @@ a {
 .right-items{
     min-width:  300px;
     width: 24vw;
-    background-color: #16559d;
+    background-color: #182e61;
 }

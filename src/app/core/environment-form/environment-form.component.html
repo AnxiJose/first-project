@@ -37,9 +37,9 @@
       <div class="form"  *ngFor="let control of this.getFormArray(InfoForm[1]).controls; let i = index"    >
       <h6> {{ formFieldData[j][0][i].titleNest}}</h6>
       <div class="row-multifield" *ngIf= formFieldData[j][0][i]>
-      <app-basic-form [formFieldType]='formFieldData[j][0][i]' [dynamicForm]="control |asFormGroup" [style.--width]="formFieldData[j][0][i].width" ></app-basic-form>
-      <ng-container  *ngFor="let nest of formFieldData[j][0][i].nestedForm">
-      <app-basic-form *ngIf="formFieldData[j][0][i].nestedForm" [dynamicForm]="control |asFormGroup " [formFieldType]='nest'  [style.--width]="formFieldData[j][0][i].width" ></app-basic-form>
+      <app-environment-form [formFieldType]='formFieldData[j][0][i]' [dynamicForm]="control |asFormGroup" [style.--width]="formFieldData[j][0][i].width" ></app-environment-form>
+      <ng-container  *ngFor="let nest of formFieldData[j][0][i].nestedForm; let a= index">
+      <app-environment-form *ngIf="formFieldData[j][0][i].nestedForm"  [formFieldTypeBefore]='formFieldData[j][0][i].nestedForm![a-1]' [dynamicForm]="control |asFormGroup " [formFieldType]='nest'  [style.--width]="nest.width" ></app-environment-form>
 
     </ng-container>
     </div>
@@ -65,9 +65,7 @@
 </form>
 
 
-<mat-step>
 
-</mat-step>
 </mat-stepper>
 
 </div>

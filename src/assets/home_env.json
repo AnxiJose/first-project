@@ -2,7 +2,7 @@
   {
     "title": "Nombre de la madre",
     "checkButton": false,
-        "width": "25%",
+        "width": "33%",
     "titleNest": "Datos Familiares",
     "optionalButton": false,
     "type":"text",
@@ -15,7 +15,7 @@
       "subtitle": "Ocupacion",
       "optionalButton": false,
       "type":"text",
-      "width": "20%",
+      "width": "33%",
       "checkButton": false,
       "database": "mom_ocupation"
 
@@ -24,7 +24,7 @@
       "subtitle": "Ocupacion",
       "optionalButton": false,
       "selectOptions": ["Bachierato","Tecnico"," Profesional"," Posgrado"],
-      "width": "20%",
+      "width": "33%",
       "checkButton": false,
       "database": "mom_lvl_ed"
 
@@ -34,7 +34,7 @@
       "subtitle": "Nombre",
       "optionalButton": false,
       "type":"text",
-      "width": "20%",
+      "width": "33%",
       "checkButton": false,
       "database": "dad_name"
     },
@@ -43,7 +43,7 @@
       "subtitle": "Ocupacion",
       "optionalButton": false,
       "type":"text",
-      "width": "20%",
+      "width": "33%",
       "checkButton": false,
       "database": "dad_ocupation"
 
@@ -53,7 +53,7 @@
       "subtitle": "Ocupacion",
       "optionalButton": false,
       "selectOptions": ["Bachierato","Tecnico"," Profesional"," Posgrado"],
-      "width": "20%",
+      "width": "33%",
       "checkButton": false,
       "database": "dad_lvl_ed"
 
@@ -67,7 +67,7 @@
     "subtitle": "Nombre",
     "optionalButton": false,
     "type":"text",
-    "width": "60%",
+    "width": "70%",
 
     "database": "name_guardian",
 
@@ -77,17 +77,17 @@
       "subtitle": "Otro?",
       "selectOptions":["Padre, Hermano, Tio, Abuelo"],
       "optionalButton": false,
-      "type":"text",
-      "width": "50%",
-      "checkButton": true,
+
+      "width": "30%",
+      "checkButton": false,
       "database": "parentage_guardian"
 
     },{      "title": "Fecha de nacimiento",
-    "subtitle": "Nombre",
+    "subtitle": "Fecha",
     "optionalButton": false,
     "type":"text",
-    "width": "50%",
-    "checkButton": true,
+    "width": "30%",
+    "checkButton": false,
     "date": true,
     "database": "student_birthdate"
   },
@@ -103,26 +103,22 @@
   }, {
     "title": "Telefono",
     "checkButton": false,
-        "width": "50%",
+        "width": "20%",
 
     "optionalButton": false,
     "type":"tel",
     "subtitle":"Telefono",
-    "database": "phone_number",
-    "nestedForm":[{
+    "database": "phone_number"
+    },{
       "title": "Correo Electronico",
       "checkButton": false,
-          "width": "50%",
+          "width": "30%",
 
       "optionalButton": false,
       "type":"email",
       "database": "email",
       "subtitle":"Correo Electronico"
-    }]
-  }
-
-  ]
-  },
+    }]},
   {
     "title": "Numero de hermanos",
     "checkButton": false,
@@ -155,7 +151,7 @@
   {
     "title": "¿Quienes apoyan la crianza del estudiante?",
     "checkButton": false,
-        "width": "85%",
+        "width": "25%",
 
     "optionalButton": false,
     "type":"text",
@@ -177,17 +173,17 @@
   {
     "title": "La familia recibe algún subsidio de alguna entidad o institucion?",
     "checkButton": true,
-        "width": "25%",
+        "width": "45%",
 
     "optionalButton": false,
 
-    "database": "subside  ",
+    "database": "subside",
     "nestedForm":[
       {
         "title": "¿Cual?",
-        "checkButton": true,
-            "width": "25%",
 
+            "width": "55%",
+        "type":"text",
         "optionalButton": false,
 
         "database": "subside_plus"
