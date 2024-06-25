@@ -28,21 +28,24 @@ export const routes: Routes = [
     component:StudentCreateUpdateComponent
   },
   {
-    path: 'student/:id',
+    path: 'students',
+
+    //canActivate:mapToCanActivate([RoleGuard]),
+    component: StudentsComponent,
+    data: { roles: ['user', 'admin']},},
+    {path: 'student',
+
 
     children: [
+
+
       {
-        path: '',
-        //canActivate:mapToCanActivate([RoleGuard]),
-        component: StudentsComponent,
-        data: { roles: ['user', 'admin']},},
-      {
-      path: 'piar',
+      path: ':id/piar',
       //canActivate:mapToCanActivate([RoleGuard]),
       component: PiarComponent,
       data: { roles: ['user', 'admin']},},
       {
-        path: 'general',
+        path: ':id/entorno',
       //canActivate:mapToCanActivate([RoleGuard]),
       component: EnvironmentFormComponent,
       data: { roles: ['user', 'admin']}

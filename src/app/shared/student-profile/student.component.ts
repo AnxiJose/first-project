@@ -27,9 +27,11 @@ throw new Error('Method not implemented.');
 
   }
   piarRedirect() {
-    this.router.navigate(['/piar']);
+
+    this.router.navigate([`/student/${this.data['id']}/piar`]);
     }
   entornoRedirect() {
-    this.router.navigate(['/entorno']);
+
+    this.router.navigate([`/student/${this.data['id']}/entorno`]);
     }
 }

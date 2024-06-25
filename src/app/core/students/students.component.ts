@@ -8,7 +8,7 @@ import { toggleSelectionShiftAnimation } from '../../shared/animations/button-to
 import { StudentComponent } from '../../shared/student-profile/student.component';
 import { StudentHomeService } from '../../services/student-home/student-home.service';
 import { tokenGetter } from '../../shared/getToken.helper';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
   selector: 'app-students',
   standalone: true,
@@ -21,16 +21,29 @@ import { tokenGetter } from '../../shared/getToken.helper';
 })
 export class StudentsComponent {
   arrayStudents: Array<any>=[]
-  constructor(private StudentService:StudentHomeService) {
+  roleToggleData: Array<any> = ["Estudiantes","Perfil", "Estadisticas"]
+  constructor(private StudentService:StudentHomeService, private jwtHelper:JwtHelperService) {
 
   }
   ngOnInit(): void {
+
+    const token = localStorage.getItem('authToken'); // Get the token from local storage
+
+    if (token){
+     const decoded = this.jwtHelper.decodeToken(token); // Decode the token
+     console.log(decoded.roles)
+     decoded.roles === 'teacher'
+  ? (this.roleToggleData = ['Estudiantes', 'Perfil', 'Equipo'])
+  : (this.roleToggleData = ['Estudiante', 'Entorno', 'Piar']);
+
+   }
 
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.StudentService.getStudents().subscribe((response )=>{
 
-     response.forEach((element: any) => {
+      const {users, censUsers}=response
+    users.forEach((element: any) => {
       this.arrayStudents.push(element)
      });
   console.log(this.arrayStudents)

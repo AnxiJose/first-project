@@ -16,6 +16,7 @@ import { MatStepper, StepperOrientation } from '@angular/material/stepper';
 import { AsFormGroupPipe } from "../../shared/asFormGroup/asFormGroup.pipe";
 import { ApiService } from '../../services/api/api.service';
 import { environment } from '../../../environment/environment';
+import { StudentEnvService } from '../../services/student-env/student-env.service';
 @Component({
     selector: 'app-environment-form',
     standalone: true,
@@ -29,11 +30,11 @@ export class EnvironmentFormComponent implements OnInit {
   logoSrc?: string;
   formFieldData: Array<[Array<FormData>, any]> = [];
   stepperOrientation!: Observable<StepperOrientation>;
-  StudentData: any;
-
-  steps: [string, string][]=[['/assets/students.json' , 'students'],['/assets/home_env.json', 'home_env'], ['/assets/health_env.json', 'health_env'],['/assets/ed_env.json','ed_env'  ],['/assets/others.json','others']];
+  StudentData: any ;
+  studentId: number = -1;
+  steps: [string[], string][]=[[[] , 'students'],[['guardian_env','parents'], 'home_env'], [['health_therapy'], 'health_env'],[[],'ed_env'  ],[['activities','recommendations'],'others']];
   constructor(private route: ActivatedRoute, private formDataService: FormDataService, private formBuilder:FormBuilder,
-    breakpointObserver: BreakpointObserver, private http: HttpClient ,private apiService: ApiService, private dataService: DataProcessingService
+    breakpointObserver: BreakpointObserver, private http: HttpClient ,private apiService: StudentEnvService, private dataService: DataProcessingService
    ){
     this.BasicInfoForm= this.formBuilder.group({
       })
@@ -43,17 +44,18 @@ export class EnvironmentFormComponent implements OnInit {
       ;};
 
   ngOnInit(): void {
-    const studentId = this.route.snapshot.params['id'];
+    this.studentId = this.route.snapshot.params['id'];
 
-    this.apiService.getData(`https://your-api-url.com/${studentId}`).subscribe({
-      next: data => {
+    this.apiService.getEnv(this.studentId).subscribe({
+      next: (data: any) => {
         this.StudentData=data
 
       },
-      error:err => {
-        console.error('There was an error!', err);
+      error:(err: any) => {
+        console.error('Not authorized | no data,', err);
       }}
     );
+    //console.log('cold',this.StudentData)
 
     for (let [path,nameFormGroup] of this.steps  ) {
       let i=0;
@@ -103,7 +105,7 @@ export class EnvironmentFormComponent implements OnInit {
     const formData = this.dataService.combineProperties(this.BasicInfoForm.value[this.steps[this.myStepper.selectedIndex][1]]);
 
     console.log(formData)
-    this.http.post(`${environment.apiUrl}/generic/add`, formData, {headers:{'model':this.steps[this.myStepper.selectedIndex][1], 'nested': this.steps[this.myStepper.selectedIndex][0] }}).subscribe({
+    this.http.put(`${environment.apiUrl}/students/${this.studentId}/environment/update`, formData, {headers:{'model':this.steps[this.myStepper.selectedIndex][1], 'nested': this.steps[this.myStepper.selectedIndex][0] }}).subscribe({
          next: data => {
       console.log('Success!', data);
     },

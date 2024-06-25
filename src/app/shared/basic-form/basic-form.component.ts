@@ -34,7 +34,7 @@ export const MY_FORMATS = {
 };
 
 @Component({
-    selector: 'app-environment-form',
+    selector: 'app-basic-form',
     standalone: true,
     templateUrl: './basic-form.component.html',
     styleUrl: './basic-form.component.scss',
@@ -52,6 +52,7 @@ export class BasicFormComponent {
   @Input() dynamicForm!: FormGroup;// =new FormGroup({checkboxValue: this.formBuilder.control(''),genericForm:this.formBuilder.array([this.formBuilder.control('') ])});
   checkboxValue = false;
   picker!: MatDatepicker<Date> ;
+  @Input() data?: any = {};
   @Input() formFieldTypeBefore ?: FormData;
   @Input() formFieldType:  FormData  ={
     title: "Placeholder",
@@ -76,10 +77,32 @@ export class BasicFormComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.\
+    //console.log(this.formFieldType)
+    //console.log('nani',this.data)
+// Check if formFieldType is checkButton
+if (this.formFieldType.checkButton) {
+    this.dynamicForm.addControl(this.formFieldType.database, this.formBuilder.array([this.formBuilder.control(false)]));
+}
 
-    this.formFieldType.checkButton ? this.dynamicForm.addControl( this.formFieldType.database,this.formBuilder.array([this.formBuilder.control(false)])) : undefined;
-    this.formFieldType.date ? this.dynamicForm.addControl( this.formFieldType.database,this.formBuilder.array([this.formBuilder.control(moment())])) : this.dynamicForm.addControl( this.formFieldType.database,this.formBuilder.array([this.formBuilder.control('')]))
+// Check if formFieldType is date
+else if (this.formFieldType.date) {
+    this.dynamicForm.addControl(this.formFieldType.database, this.formBuilder.array([this.formBuilder.control(moment())]));
+}
+
+// Default case
+else {
+    this.dynamicForm.addControl(this.formFieldType.database, this.formBuilder.array([this.formBuilder.control(this.data.hasOwnProperty(this.formFieldType.database) ? this.data[this.formFieldType.database] : '')]));
+}
+
+// Filter data and add control if item is an object
+Object.values(this.data).forEach(( item:any ) => {
+  if (item && typeof item === 'object' && item.constructor === Object) {
+    //console.log(item)
+      this.dynamicForm.addControl(this.formFieldType.database, this.formBuilder.array([this.formBuilder.control(item.hasOwnProperty(this.formFieldType.database) ? item[this.formFieldType.database] : '')]));
   }
+});
+  }
+
   atLeastOneFieldValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
     const group = control as FormGroup;
     const controls = group.controls;
@@ -97,7 +120,7 @@ export class BasicFormComponent {
 
   addFormField() {
     // Add your logic here to handle adding a new form field\
-    console.log(this.dynamicForm);
+    //console.log(this.dynamicForm);
 
     (this.dynamicForm.get(this.formFieldType.database) as FormArray).push(this.formBuilder.control(''));
   }

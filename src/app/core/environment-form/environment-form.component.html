@@ -1,9 +1,9 @@
 @switch (stepperOrientation | async) {
   @case ('horizontal') {
-    <div>Make your screen smaller to see a vertical stepper</div>
+
   }
   @case ('vertical') {
-    <div>Make your screen larger to see a horizontal stepper</div>
+
   }
 }
 <div class="home-view">
@@ -36,10 +36,10 @@
         <div class="mat-step">
       <div class="form"  *ngFor="let control of this.getFormArray(InfoForm[1]).controls; let i = index"    >
       <h6> {{ formFieldData[j][0][i].titleNest}}</h6>
-      <div class="row-multifield" *ngIf= formFieldData[j][0][i]>
-      <app-environment-form [formFieldType]='formFieldData[j][0][i]' [dynamicForm]="control |asFormGroup" [style.--width]="formFieldData[j][0][i].width" ></app-environment-form>
+      <div class="row-multifield" *ngIf="formFieldData[j][0][i] && this.StudentData">
+      <app-basic-form [data]="this.StudentData[j]" [formFieldType]='formFieldData[j][0][i]' [dynamicForm]="control |asFormGroup" [style.--width]="formFieldData[j][0][i].width" ></app-basic-form>
       <ng-container  *ngFor="let nest of formFieldData[j][0][i].nestedForm; let a= index">
-      <app-environment-form *ngIf="formFieldData[j][0][i].nestedForm"  [formFieldTypeBefore]='formFieldData[j][0][i].nestedForm![a-1]' [dynamicForm]="control |asFormGroup " [formFieldType]='nest'  [style.--width]="nest.width" ></app-environment-form>
+      <app-basic-form [data]="this.StudentData[j]" *ngIf="formFieldData[j][0][i].nestedForm"  [formFieldTypeBefore]='formFieldData[j][0][i].nestedForm![a-1]' [dynamicForm]="control |asFormGroup " [formFieldType]='nest'  [style.--width]="nest.width" ></app-basic-form>
 
     </ng-container>
     </div>

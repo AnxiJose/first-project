@@ -39,7 +39,7 @@ export class HomeComponent {
         ;
 
         if (response) {
-          this.router.navigate(['/home/students']);
+          this.router.navigate(['/students']);
           console.log('API Response:', response)
         } else {
           this.loginErrorMessage = 'Login failed due to invalid credentials'

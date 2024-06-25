@@ -48,16 +48,29 @@ margin: auto;
 min-height: 78%;
 height: auto;
 flex-wrap: wrap;
-
+border-radius: 20px;
 align-items: center;
+border: 2px solid #c3c6ce;
+
+transition: 0.5s ease-out;
+margin-block-end: 2%;
+margin-top: 7%;
 }
+
+ .students:hover {
+  border-color: #008bf8;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+ }
+
+
 .container {
 display: flex;
 flex-direction: column;
 align-items: center;
 height: 20%;
 width: 100%;
-margin: 10%;
+margin-inline: 5%;
+
 }
 .left-section img{
 width: 8vh
@@ -106,7 +119,7 @@ width: 100%;
 width: 100%;
 display: flex;
 flex-wrap: wrap;
-padding-block-end: 10%;
+padding-block-end: 2%;
 }
 mat-card-content{
 display: flex;

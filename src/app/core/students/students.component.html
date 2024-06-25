@@ -5,7 +5,7 @@
         <div class="vdivider"></div>
       </div>
 
-      <app-button-toggle [buttonOptions]='["Estudiantes","Perfil", "Estadisticas"]' (optionSelected)="updateContent($event)"> </app-button-toggle>
+      <app-button-toggle [buttonOptions]='this.roleToggleData' (optionSelected)="updateContent($event)"> </app-button-toggle>
       <div class="right-section">
         <!-- Buttons go here -->
         <button mat-raised-button color="primary">Know More</button>
@@ -14,4 +14,5 @@
       </div>
 </div>
 <ng-container *ngFor="let data of this.arrayStudents">
+
 <app-student [data]="data"></app-student></ng-container>

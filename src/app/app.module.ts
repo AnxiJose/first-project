@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { ServerModule } from '@angular/platform-server';
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,7 +21,7 @@ import { appConfig } from './app.config';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserAnimationsModule ,AppRoutingModule,CommonModule, BrowserModule,RouterModule, RouterOutlet,RouterLink,RouterLinkActive, ServerModule, HttpClientModule, JwtModule.forRoot({
+    BrowserAnimationsModule ,AppRoutingModule,CommonModule, BrowserModule,RouterModule, RouterOutlet,RouterLink,RouterLinkActive,  HttpClientModule, JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
         allowedDomains: ["localhost:3000"],
