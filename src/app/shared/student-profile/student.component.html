@@ -9,8 +9,8 @@
     <!-- <div class="hdivider"></div>-->
     <mat-divider></mat-divider>
     <div class="container-bot">
-    <div class="info">
-      <mat-card>
+    <div class="info" *ngIf="data['age'] || data['period']">
+      <mat-card >
         <mat-card-content><mat-icon>perm_contact_calendar</mat-icon> <p>Edad: {{data['age'] ??'??'}} </p>
       </mat-card-content>
       </mat-card>

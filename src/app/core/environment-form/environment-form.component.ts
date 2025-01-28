@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { addAriaReferencedId } from '@angular/cdk/a11y';
 import { FormDataService } from '../../services/form-data-service/form-data.service';
 import {BreakpointObserver} from '@angular/cdk/layout';
-import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { error } from 'pdf-lib';
 import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, map } from 'rxjs';
@@ -22,7 +22,8 @@ import { StudentEnvService } from '../../services/student-env/student-env.servic
     standalone: true,
     templateUrl: './environment-form.component.html',
     styleUrl: './environment-form.component.scss',
-    imports: [MaterialModule, BasicFormComponent, ButtonToggleComponent, HttpClientModule, AsFormGroupPipe]
+    imports: [MaterialModule, BasicFormComponent, ButtonToggleComponent,
+ AsFormGroupPipe]
 })
 export class EnvironmentFormComponent implements OnInit {
   @ViewChild('stepper') private myStepper!: MatStepper;

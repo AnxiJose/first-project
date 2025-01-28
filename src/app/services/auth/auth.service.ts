@@ -20,8 +20,8 @@ export class AuthService {
       }
     }))
   }
-  signup(username: string, password: string, role: string){
-    return this.http.post<any>(`${this.baseUrl}/signup`, {username,password,role}).pipe(
+  signup(username: string, password: string, roles: string){
+    return this.http.post<any>(`${this.baseUrl}/signup`, {username,password,roles}).pipe(
       tap(response =>{
         if (response && response.token){
           this.saveAuthToken(response.token);
